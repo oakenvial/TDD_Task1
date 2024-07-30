@@ -52,7 +52,7 @@ class PhoneBookTest {
         PhoneBook phoneBook = new PhoneBook();
         phoneBook.add(name1, numberA);
         phoneBook.add(name2, numberB);
-        phoneBook.add(name2, numberB);
+        phoneBook.add(name3, numberB);
 
         assertEquals(numberA, phoneBook.findByName(name1));
         assertEquals(numberB, phoneBook.findByName(name2));
