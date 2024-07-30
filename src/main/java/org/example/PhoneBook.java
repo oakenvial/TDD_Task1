@@ -1,21 +1,23 @@
 package org.example;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PhoneBook {
     private final Map<String, String> namesToNumbers;
     private final Map<String, String> numbersToNames;
+    private final List<String> sortedNames;
 
     public PhoneBook() {
         namesToNumbers = new HashMap<>();
         numbersToNames = new HashMap<>();
+        sortedNames = new ArrayList<>();
     }
 
     public int add(String name, String number) {
         namesToNumbers.put(name, number);
         numbersToNames.put(number, name);
+        sortedNames.add(name);
+        sortedNames.sort(String::compareTo);
         return namesToNumbers.size();
     }
 
@@ -28,6 +30,6 @@ public class PhoneBook {
     }
 
     public List<String> printAllNames() {
-        return null;
+        return sortedNames;
     }
 }
