@@ -41,4 +41,21 @@ class PhoneBookTest {
         assertEquals(name1, phoneBook.findByNumber(numberA));
         assertTrue(phoneBook.findByNumber(numberB).equals(name2) || phoneBook.findByNumber(numberB).equals(name3));
     }
+
+    @Test
+    public void testFindByName() {
+        final String name1 = "Test name 1";
+        final String numberA = "+79991001011";
+        final String name2 = "Test name 2";
+        final String name3 = "Test name 3";
+        final String numberB = "+79991001012";
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add(name1, numberA);
+        phoneBook.add(name2, numberB);
+        phoneBook.add(name2, numberB);
+
+        assertEquals(numberA, phoneBook.findByName(name1));
+        assertEquals(numberB, phoneBook.findByName(name2));
+        assertEquals(numberB, phoneBook.findByName(name3));
+    }
 }
